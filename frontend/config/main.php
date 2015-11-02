@@ -25,6 +25,9 @@ return [
                 ],
             ],
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager'
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],

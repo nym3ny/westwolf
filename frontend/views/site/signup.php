@@ -17,11 +17,17 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="row">
         <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+            <?php $form = ActiveForm::begin(['id' => 'form-signup','options' => ['enctype' => 'multipart/form-data']]); ?>
+
+                <?= $form->field($model, 'first_name') ?>
+
+                <?= $form->field($model, 'last_name') ?>
 
                 <?= $form->field($model, 'username') ?>
 
                 <?= $form->field($model, 'email') ?>
+
+                <?= $form->field($model, 'avatar_file')->fileInput() ?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
