@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use backend\models\Tasks;
 use backend\models\TasksSearch;
@@ -46,7 +47,9 @@ class TasksController extends Controller
     {
         $searchModel = new TasksSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        /*$dataProvider = new ActiveDataProvider([
+            'query' => Tasks::find()->where(['user_id'=>'1']),
+        ]);*/
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

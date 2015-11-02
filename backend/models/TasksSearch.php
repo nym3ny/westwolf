@@ -54,17 +54,18 @@ class TasksSearch extends Tasks
             // $query->where('0=1');
             return $dataProvider;
         }
-
+        $query->joinWith('user');
         $query->andFilterWhere([
             'task_id' => $this->task_id,
-            'user_id' => $this->user_id,
             'deadline' => $this->deadline,
         ]);
+
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'snapshot', $this->snapshot])
-            ->andFilterWhere(['like', 'priority', $this->priority]);
+            ->andFilterWhere(['like', 'priority', $this->priority])
+            ->andFilterWhere(['like', 'user.username', $this->user_id]);
 
         return $dataProvider;
     }
