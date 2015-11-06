@@ -47,9 +47,6 @@ class TasksController extends Controller
     {
         $searchModel = new TasksSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        /*$dataProvider = new ActiveDataProvider([
-            'query' => Tasks::find()->where(['user_id'=>'1']),
-        ]);*/
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
